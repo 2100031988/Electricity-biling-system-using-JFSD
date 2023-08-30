@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(128, 255, 255);
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+footer {
+position: fixed;
+   bottom: 0;
+   width: 100%;
+   height: 25px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Styling for the icon links */
+        .footer-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        /* Styling for the "All rights reserved" section */
+        .footer-rights {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .footer-rights a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-rights a:hover {
+            text-decoration: underline;
+        }

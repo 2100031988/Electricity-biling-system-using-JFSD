@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="topnav.css">
+    <title>Electricity Bill Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+ <div class="topnav">
+  <a class="active" href="welcome.jsp">Home</a>
+  <a href="about.html">About</a>
+  <a href="calculate.html">Calculate Bill</a>
+  <a href="previous.html">Previous Bills</a>
+  <a href="remainder.html">Set Reminder</a>
+  <a href="contact.html">Contact</a>
+  <a href="index.html" style="float: right">Logout</a>
+  </div>
+
+    <div class="container">
+        <h2>Electricity Bill Calculator</h2>
+        <label for="units">Enter Consumed Units:</label>
+        <input type="number" id="units" placeholder="Enter units">
+        <button onclick="calculateBill()">Calculate Bill</button>
+        <div class="result" id="billResult"></div>
+    </div>
+
+    <script>
+        function calculateBill() {
+            var units = parseFloat(document.getElementById("units").value);
+            var totalBill = 0;
+
+            // Assuming tariff rates for different slabs
+            var slab1Rate = 3.50; // First 100 units
+            var slab2Rate = 4.50; // Next 200 units
+            var slab3Rate = 5.00; // Remaining units
+
+            if (units <= 100) {
+                totalBill = units * slab1Rate;
+            } else if (units <= 300) {
+                totalBill = 100 * slab1Rate + (units - 100) * slab2Rate;
+            } else {
+                totalBill = 100 * slab1Rate + 200 * slab2Rate + (units - 300) * slab3Rate;
+            }
+
+            // Add additional charges or taxes here if required
+            // For example, you can add a fixed monthly charge or taxes as a percentage of the total bill.
+
+            document.getElementById("billResult").innerHTML = "Total Bill Amount: $" + totalBill.toFixed(2);
+        }
+    </script>
+    <footer>
+        <!-- Icons from Font Awesome, you can replace these with other icons if you prefer -->
+        <div class="footer-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Additional footer content -->
+        <div class="footer-rights">
+            <p>&copy; 2023 All rights reserved.</p>
+           
+        </div>
+    </footer>
+</body>
+</html>
